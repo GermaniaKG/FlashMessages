@@ -20,12 +20,12 @@
 
   "autoload-dev": {
       "psr-4": {
-      	"tests\\": "tests/src"
+          "tests\\": "tests/src"
       }
   },
 
 	"require": {
-			"slim/flash": "^0.4",
+			"slim/flash": "^0.4.0",
 			"pimple/pimple": "^3.0"
 	},
 

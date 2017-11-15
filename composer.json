@@ -1,0 +1,38 @@
+{
+	"name": "germania-kg/flashmessages",
+	"description": "Pimple Service Provider for Slim Framework flash messages",
+
+	"license": "MIT",
+
+	"authors": [
+		{
+			"name":  "Carsten Witt",
+			"email": "carstenwitt@germania-kg.de",
+			"role":  "Developer"
+		}
+	],
+
+	"autoload": {
+		"psr-4": {
+			"Germania\\FlashMessages\\": "src"
+		}
+	},
+
+  "autoload-dev": {
+      "psr-4": {
+      	"tests\\": "tests/src"
+      }
+  },
+
+	"require": {
+			"slim/flash": "^0.4",
+			"pimple/pimple": "^3.0"
+	},
+
+	"require-dev": {
+			"satooshi/php-coveralls": "^1.0",
+			"phpunit/phpunit": "^5.2|^6.0"
+	}
+
+
+}

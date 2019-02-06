@@ -29,10 +29,18 @@
 			"pimple/pimple": "^3.0"
 	},
 
-	"require-dev": {
-			"satooshi/php-coveralls": "^1.0",
-			"phpunit/phpunit": "^5.2|^6.0"
-	}
+    "require-dev": {
+        "php-coveralls/php-coveralls": "^2.0",
+        "phpunit/phpunit": "^5.7|^6.0|^7.0",
+        "phpunit/dbunit": "^3.0|^4.0"
+    },
 
+    "scripts": {
+          "phpunit": "phpunit",
+
+          "test": [
+              "@phpunit"
+          ]
+    }
 
 }

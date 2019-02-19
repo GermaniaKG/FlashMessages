@@ -39,27 +39,21 @@ class FlashMessagesServiceProvider implements ServiceProviderInterface
 
 
         /**
-         * @return callable
+         * @return callable|FlashMessageSetter
          */
-        $dic['FlashMessages.Setter'] = $dic->protect(function( $keyword, $message ) use ($dic) {
-             $dic['FlashMessages']->addMessage($keyword, $message );
-        });
+        $dic['FlashMessages.Setter'] = function ($dic) {
+            $messages = $dic['FlashMessages'];
+            return new FlashMessageSetter( $messages );
+        };
 
 
         /**
-         * @return callable
+         * @return callable|FlashMessageGetter
          */
-        $dic['FlashMessages.Getter'] = $dic->protect(function( $keyword = null ) use ($dic) {
-            $messages = $dic['FlashMessages']->getMessages();
-
-            if (is_null($keyword )) {
-                return $messages;
-            }
-
-            return (array_key_exists($keyword, $messages))
-            ? $messages[ $keyword ]
-            : array();
-        });
+        $dic['FlashMessages.Getter'] = function ($dic) {
+            $messages = $dic['FlashMessages'];
+            return new FlashMessageGetter( $messages );
+        };
 
     }
 }

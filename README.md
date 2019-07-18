@@ -34,16 +34,42 @@ use Pimple\Container;
 use Slim\Flash\Messages;
 use Germania\FlashMessages\FlashMessagesServiceProvider;
 
-
-// Messages object is optional
+// 'Slim Flash Messages' object is optional
 $flash_services = new FlashMessagesServiceProvider;
 $flash_services = new FlashMessagesServiceProvider( new Messages );
 
 // Setup Pimple container
 $container = new Container;
 $container->register( $flash_services );
+
+// Shortest Setup:
+$container->register( new FlashMessagesServiceProvider );
 ```
 
+
+
+### Setting Flash Messages
+
+```php
+$flash_setter = $container['FlashMessages.Setter'];
+$flash_setter( $keyword, $message );
+```
+
+
+
+### Getting Flash Messages
+
+```php
+$flash_getter = $container['FlashMessages.Getter'];
+
+//  Get one single message. 
+$flash_getter( $keyword );
+
+//  $keyword is optional; leave empty to get ALL messages
+$flash_getter();
+```
+
+## 
 
 ## Development
 
